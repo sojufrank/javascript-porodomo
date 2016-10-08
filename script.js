@@ -22,9 +22,7 @@ function podomoro(){
     }else{
         time.porotime--;
         time.timer = setTimeout(podomoro, 1000, time.porotime);
-        var sec = time.porotime % 60;
-        var min = Math.floor(time.porotime / 60);
-        elem.innerHTML = min+" :  "+sec;
+        setDisplay();
     }
 }
 
@@ -38,10 +36,15 @@ function coolDown(){
     else{
         time.porotime--;
         time.timer = setTimeout(coolDown, 1000, time.porotime);
-        var sec = time.porotime % 60;
-        var min = Math.floor(time.porotime / 60);
-        elem.innerHTML = min+" :  "+sec;        
+        setDisplay();      
     }
+}
+
+function setDisplay(){
+    var elem = document.getElementById('display');
+    var sec = time.porotime % 60;
+    var min = Math.floor(time.porotime /60);
+    elem.innerHTML = min+" : "+sec;
 }
 
 
@@ -75,7 +78,10 @@ mog.addEventListener('click', function(){
 var select = document.getElementById('timesel');
 select.addEventListener('change', function(){
     time.porotime = this.value;
+    setDisplay(); 
 });
+
+setDisplay()
 
 
 var finalFantasy = null;
