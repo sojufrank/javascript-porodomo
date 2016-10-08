@@ -1,0 +1,52 @@
+html {
+    height:100%;
+    background-color:black;
+    font-family: 'Roboto', sans-serif;
+}
+body{
+    height:100%;
+    border:10px solid #424242;
+    border-radius:20px;
+    background: linear-gradient(to bottom right, white, blue);
+}
+#border{
+    height:99%;
+
+}
+h1{
+    text-align: center;
+}
+#moogle{
+    width:95%;
+    height:80%;
+}
+#display{
+    padding-top:5px;
+    padding-bottom:5px;
+    margin-left:30%;
+    margin-right:30%;
+    background:#424242;
+    border:2px solid white;
+    border-radius:10px;
+    color:white;
+}
+#start{
+    top:40%;
+    left:30%;
+    position:absolute;
+    width:60%;
+    height:50%;
+}
+#timesel{
+    display:block;
+    margin:auto;
+}
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
