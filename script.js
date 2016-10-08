@@ -11,19 +11,12 @@ function TimeData(){
 }
 var time = new TimeData();
 
-function music(){   
-    musicNode.setAttribute('src',"https://s3-us-west-2.amazonaws.com/sojuheroku/FF.mp3");
-    musicNode.load();
-    musicNode.volume = 0.5;  
-}
-music();
-
 function podomoro(){
     if(time.porotime < 1){
         var select = document.getElementById('timesel');
         time.porotime = time.coolTime;
         clearTimeout(time.timer);
-        musicNode.play();
+        playSound();
         time.coolBool = true;
         coolDown()
     }else{
@@ -83,3 +76,33 @@ var select = document.getElementById('timesel');
 select.addEventListener('change', function(){
     time.porotime = this.value;
 });
+
+
+var finalFantasy = null;
+window.AudioContext = window.AudioContext || window.webkitAudioContext;
+var context = new AudioContext();
+
+function loadMusic(){
+    var request = new XMLHttpRequest();
+    request.open('GET', "https://s3-us-west-2.amazonaws.com/sojuheroku/FF.mp3", true);
+    request.responseType = 'arraybuffer';
+
+    request.onload = function(){
+        context.decodeAudioData(request.response, function(buffer){
+            finalFantasy = buffer;
+            //playSound();
+        }, function(error){
+            console.error("decodeAudioData error", error);
+        });
+    }
+    request.send();
+}
+
+loadMusic();
+
+function playSound(){
+    var source = context.createBufferSource();
+    source.buffer = finalFantasy;
+    source.connect(context.destination);
+    source.start(0);
+}
