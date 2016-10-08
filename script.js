@@ -80,6 +80,6 @@ mog.addEventListener('click', function(){
 });
 
 var select = document.getElementById('timesel');
-select.addEventListener('click', function(){
+select.addEventListener('change', function(){
     time.porotime = this.value;
 });
