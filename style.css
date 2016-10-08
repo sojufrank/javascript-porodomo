@@ -1,28 +1,32 @@
 html {
-    height:100%;
+    
     background-color:black;
     font-family: 'Roboto', sans-serif;
+    text-align: center;
 }
 body{
-    height:100%;
+    position:relative;
+    max-width:600px;
+    height:auto;
+    margin-left:auto;
+    margin-right:auto;
     border:10px solid #424242;
     border-radius:20px;
     background: linear-gradient(to bottom right, white, blue);
 }
-#border{
-    height:99%;
 
-}
-h1{
-    text-align: center;
-}
 #moogle{
-    width:95%;
-    height:80%;
+    max-width:100%;
+    height:auto;
+}
+#test{
+  position:relative;
+  height:auto;
+  border:1px solid yellow;
 }
 #display{
-    padding-top:5px;
-    padding-bottom:5px;
+    padding-top:1%;
+    padding-bottom:1%;
     margin-left:30%;
     margin-right:30%;
     background:#424242;
@@ -31,11 +35,13 @@ h1{
     color:white;
 }
 #start{
-    top:40%;
+  border:1px solid white;
+    top:35%;
     left:30%;
+    width:65%;
+    height:60%;
     position:absolute;
-    width:60%;
-    height:50%;
+
 }
 #timesel{
     display:block;
